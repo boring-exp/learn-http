@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气预报</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <div><input v-model="city" /></div>
+        {{city}}
+        <button @click="getWeather">查询天气</button>
+        <div>{{weather}}</div>
+    </div>
+    <script>
+        const { createApp } = Vue
+        const app = createApp({
+            data() {
+                return {
+                    weather: '',
+                    city: '',
+                    baseUrl: 'http://jisutqybmf.market.alicloudapi.com/weather/query'
+                }
+            },
+            methods: {
+                async getWeather() {
+                    const result = await axios.get(this.baseUrl, {
+                        headers: {
+                            Authorization: 'APPCODE e36e4f85632f48d8bf3a4b12e260877e'
+                        },
+                        params: {
+                            city: this.city
+                        }
+                    })
+                    this.weather = result.data.result
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
