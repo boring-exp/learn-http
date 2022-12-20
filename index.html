@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <input id="input"/>
     <button id="button">小demo</button>
     <div id="text"></div>
     <script>
@@ -17,24 +18,31 @@
         const username = 'pjw'
         const password = '123456'
         async function main() {
-            const result = await axios.get(`http://localhost:8080/user`, {
+            const result = await axios.get(`http://jisutqybmf.market.alicloudapi.com/weather/query`, {
                 headers: {
-                    pjw: 'pjw'
+                    Authorization: 'APPCODE e36e4f85632f48d8**********'
                 },
-                query: {
-                    password,
-                    username
+                params: {
+                    city: getCityName()
                 }
             })
-            console.log(result.data)
+            console.log(result.data.result.weather)
             // 设置一下前端的内容
-            setTextToDiv(result.data)
+            setTextToDiv(JSON.stringify(result.data.result))
         }
         // main()
-
+    
+        // 显示天气
         function setTextToDiv(text) {
             const element = document.getElementById('text')
             element.innerHTML = text;
+        }
+
+        // 获取城市信息
+        function getCityName() {
+            const input = document.getElementById('input')
+            console.log(input.value)
+            return input.value;
         }
 
         // 当点击button按钮的时候，调用main函数

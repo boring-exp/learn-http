@@ -6,6 +6,8 @@ const requestListener = function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Methods', 'GET')
     res.setHeader('Access-Control-Allow-Headers', 'pjw')
+    console.log(req.url)
+    console.log(req.headers)
     if (req.method === 'OPTIONS') {
         res.writeHead(204);
         res.end()
