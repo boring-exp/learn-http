@@ -6,16 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>天气预报</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-plus"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
 
     <div id="app">
-        <div><input v-model="city" /></div>
+        <div><el-input v-model="city"></el-input></div>
         {{city}}
-        <button @click="getWeather">查询天气</button>
+        <el-button @click="getWeather">查询天气</el-button>
         <div>{{weather}}</div>
     </div>
     <script>
@@ -42,6 +46,8 @@
                 }
             }
         })
+        // 引入elementui plus
+        app.use(ElementPlus);
         app.mount('#app')
     </script>
 </body>
