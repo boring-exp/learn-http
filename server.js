@@ -21,3 +21,15 @@ const requestListener = function (req, res) {
 
 const server = http.createServer(requestListener);
 server.listen(8080, () => console.log('server is listening on http://localhost:8080'));
+
+
+
+function factorial(n, acc = 1) {
+    "use strict";
+    if (n <= 1) return acc;
+    const result = factorial(n - 1, n * acc);
+    return result;
+}
+
+const babel = require("@babel/core");
+import babel from '@babel/core'

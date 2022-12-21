@@ -1,0 +1,6 @@
+{
+    "plugins": [
+        "@babel/plugin-transform-destructuring",
+        "@babel/plugin-transform-arrow-functions"
+    ]
+}
