@@ -33,3 +33,8 @@ function factorial(n, acc = 1) {
 
 const babel = require("@babel/core");
 import babel from '@babel/core'
+
+"plugins": [
+    "@babel/plugin-transform-destructuring",
+    "@babel/plugin-transform-arrow-functions"
+],

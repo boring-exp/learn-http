@@ -7,3 +7,6 @@ const c = {
 }
 
 const {name, age: peopelAge, info} = c;
+
+// const test = c && c.info && c.info.name
+const test = c?.info?.name?.age
